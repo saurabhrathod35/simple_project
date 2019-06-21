@@ -1,0 +1,6 @@
+<app-col
+  *ngFor="let column of row.columns"
+  [ngClass]="'col-' + column.span"
+  [row]="row"
+  [column]="column">
+</app-col>

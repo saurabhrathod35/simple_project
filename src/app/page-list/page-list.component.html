@@ -1,0 +1,14 @@
+<ul class="list-group">
+  <li
+    class="list-group-item" *ngFor="let page of pages">
+    <a [routerLink]="'/websites/' + websiteId + '/pages/' + page._id">
+      {{page.title}}
+    </a>
+  </li>
+</ul>
+<br/>
+<button
+  class="btn btn-primary"
+  (click)="appendPage()">
+  Add Page
+</button>

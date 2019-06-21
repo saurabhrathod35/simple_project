@@ -1,0 +1,19 @@
+<div style="min-height: 50px; position: relative;"
+     class="border m-1">
+  <app-widget
+    style="position: relative;min-width: 100px"
+    [row]="row"
+    [column]="column"
+    [widget]="widget"
+    *ngFor="let widget of column.widgets">
+  </app-widget>
+  <i (click)="appendWidget()"
+     style="position: absolute;bottom: 0px;right: 0px;"
+     title="Add Widget"
+     class="fa fa-plus"></i>
+  <app-column-toolbar
+    style="position: absolute; top: 0px; left: 0px; min-height: 10px"
+    [row]="row"
+    [column]="column">
+  </app-column-toolbar>
+</div>

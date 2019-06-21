@@ -1,0 +1,12 @@
+<h1>{{page.title}} {{page._id}}</h1>
+<app-page-row
+  [row]="row"
+  [pageId]="page._id"
+  [page]="page"
+  [websiteId]="websiteId"
+  *ngFor="let row of page.rows">
+</app-page-row>
+<br/>
+<button (click)="appendRow()">
+  Append Rows
+</button>

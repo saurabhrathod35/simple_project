@@ -1,0 +1,10 @@
+<app-row
+  *ngFor="let row of rows"
+  [row]="row"
+  class="row no-gutters">
+</app-row>
+<span
+  (click)="appendRow()"
+  class="float-right">
+  Add
+</span>

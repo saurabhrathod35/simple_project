@@ -1,0 +1,28 @@
+<span
+  (mouseleave)="hideWidgetToolbar=true">
+  <i class="fa fa-gear"
+     (mouseenter)="hideWidgetToolbar=false"></i>
+  <span
+    [hidden]="hideWidgetToolbar"
+    (mouseleave)="hideWidgetToolbar=true">
+    <a [href]="'/layout/edit/widget/' + widget._id" class="fa fa-pencil"></a>
+    <i (click)="deleteWidget()"
+       class="fa fa-remove"></i>
+    <i (click)="moveWidgetUp()"
+       class="fa fa-arrow-up"></i>
+    <i (click)="moveWidgetDown()"
+       class="fa fa-arrow-down"></i>
+    <i (click)="moveWidgetLeft()"
+       class="fa fa-arrow-left"></i>
+    <i (click)="moveWidgetRight()"
+       class="fa fa-arrow-right"></i>
+    <select>
+      <option>Header</option>
+      <option>Paragraph</option>
+      <option>HTML</option>
+      <option>YouTube</option>
+      <option>Image</option>
+      <option>Code</option>
+    </select>
+  </span>
+</span>

@@ -1,0 +1,24 @@
+<h1>Websites</h1>
+<div class="list-group" cdkDropList>
+  <a [routerLink]="'/websites/' + website._id + '/pages'" *ngFor="let website of websites"
+  (cdkDropListDropped)="drop($event)"   class="list-group-item"cdkDrag >
+    <span [hidden]="website.editing">{{website.title}}</span>
+    <input
+      [(ngModel)]="website.title"
+      [hidden]="!website.editing"/>
+    <i [hidden]="website.editing"
+       (click)="setEditing(website, true)"
+       class="fa fa-pencil float-right"></i>
+    <i [hidden]="!website.editing"
+       (click)="setEditing(website, false)"
+       class="fa fa-check float-right"></i>
+    <i (click)="deleteWebsite(website)"
+       class="fa fa-remove float-right"></i>
+  </a>
+</div>
+<br/>
+<!-- <button (click)="createWebsite()" class="btn btn-success">
+  Create Website
+</button> -->
+
+<button mat-raised-button (click)="createWebsite('new')" color="primary">Create Website</button>

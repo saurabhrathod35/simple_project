@@ -1,0 +1,9 @@
+<ul class="list-group">
+  <li class="list-group-item active">
+    Lessons
+  </li>
+  <li *ngFor="let lesson of lessons"
+      class="list-group-item">
+    {{lesson.title}}
+  </li>
+</ul>

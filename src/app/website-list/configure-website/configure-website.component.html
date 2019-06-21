@@ -1,0 +1,22 @@
+<div>
+<div mat-dialog-title>
+  <!-- header -->
+  Website
+</div>
+
+<div mat-dialog-content>
+  <!-- content -->
+  <mat-form-field class="example-full-width">
+      <input matInput [(ngModel)]="data.title" placeholder="Title">
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+        <input matInput [(ngModel)]="data.auther" placeholder="Auther">
+      </mat-form-field>
+  
+</div>
+<div mat-dialog-actions>
+  <button mat-button [mat-dialog-close]="data" cdkFocusInitial>Ok</button>
+    <button mat-button (click)="onNoClick()">No Thanks</button>
+  </div>
+</div>

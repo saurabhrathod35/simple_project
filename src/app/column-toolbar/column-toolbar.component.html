@@ -1,0 +1,23 @@
+<span (mouseleave)="hideToolbar=true">
+  <i class="fa fa-gear"
+    (mouseenter)="hideToolbar=false"></i>
+  <span
+    [hidden]="hideToolbar">
+    <i class="fa fa-expand"
+       (click)="spanColumnUp()"></i>
+    <i class="fa fa-compress"
+       (click)="spanColumnDown()"></i>
+    <i class="fa fa-arrow-up"
+       (click)="moveColumnUp()"></i>
+    <i class="fa fa-arrow-down"
+       (click)="moveColumnDown()"></i>
+    <i class="fa fa-arrow-left"
+       (click)="moveColumnLeft()"></i>
+    <i class="fa fa-arrow-right"
+       (click)="moveColumnRight()"></i>
+    <i class="fa fa-remove"
+       (click)="deleteColumn()"></i>
+    <i class="fa fa-plus"
+       (click)="addColumn()"></i>
+  </span>
+</span>
