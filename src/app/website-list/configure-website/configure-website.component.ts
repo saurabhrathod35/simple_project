@@ -16,4 +16,12 @@ export class ConfigureWebsiteComponent implements OnInit {
   ngOnInit() {
   }
 
+  save(){
+    this.dialogRef.close(this.data)
+  }
+
+  close(){
+    this.dialogRef.close();
+  }
+
 }

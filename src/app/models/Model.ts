@@ -114,7 +114,7 @@ export default class Model
 
   appendWidget(row: any, col: any) {
     col.widgets.push(
-      new Widget('HEADING', 'New Widget', 4));
+      new Widget({type:'HEADING', text:'New Widget', size:4}));
   }
 
   moveWidgetUp(row: any, col: any, widget: any) {

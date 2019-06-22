@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import PageService from '../services/PageService';
+import {PageModel} from '../models/PageModel';
+import { MatDialog } from '@angular/material';
+import { ConfigurePageComponent } from './configure-page/configure-page.component';
 
 @Component({
   selector: 'app-page-list',
@@ -10,7 +13,7 @@ import PageService from '../services/PageService';
 export class PageListComponent implements OnInit {
 
   constructor(private service: PageService,
-              private router: ActivatedRoute) { }
+              private router: ActivatedRoute,public dialog: MatDialog) { }
 
   pages = []
   websiteId = ''
@@ -26,12 +29,27 @@ export class PageListComponent implements OnInit {
   }
 
   appendPage() {
+    let tmp = new PageModel();
     const pageObj = {
       title: 'New Page'
     }
-    this.service.createPage(this.websiteId, pageObj)
-      .then(page => this.pages.push(pageObj))
-      .catch(error => console.log(error))
+    const dialogRef = this.dialog.open(ConfigurePageComponent, {
+      width: '250px',
+      data: tmp
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      console.log('The dialog was closed');
+      if(result){
+        // this.websites[index] = result;
+        this.service.createPage(this.websiteId, result)
+          .then(page => this.pages.push(page))
+          .catch(error => console.log(error))
+      }
+      },error=>{
+          console.log('something wrong');
+      })
+
 
   }
 }

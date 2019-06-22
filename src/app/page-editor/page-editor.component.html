@@ -1,12 +1,26 @@
-<h1>{{page.title}} {{page._id}}</h1>
-<app-page-row
-  [row]="row"
-  [pageId]="page._id"
-  [page]="page"
-  [websiteId]="websiteId"
-  *ngFor="let row of page.rows">
-</app-page-row>
-<br/>
-<button (click)="appendRow()">
-  Append Rows
+<div class="container-main">
+  <h1>{{page?.title}}</h1>
+     <div cdkDropList   (cdkDropListDropped)="drop($event)">
+          <div *ngFor="let row of page.rows" class="column-container" cdkDrag>
+              <div class="example-handle" cdkDragHandle>
+                  <svg width="24px" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M10 9h4V6h3l-5-5-5 5h3v3zm-1 1H6V7l-5 5 5 5v-3h3v-4zm14 2l-5-5v3h-3v4h3v3l5-5zm-9 3h-4v3H7l5 5 5-5h-3v-3z"></path>
+                    <path d="M0 0h24v24H0z" fill="none"></path>
+                  </svg>
+                </div>
+                
+               <app-page-row 
+                (cdkDropListDropped)="drop($event)" 
+                [row]="row" 
+                [pageId]="page._id" 
+                [page]="page"
+                [websiteId]="websiteId">
+              </app-page-row>  
+           </div>
+        </div>
+       </div>
+<button matTooltip="Edit Page" (click)="appendRow()" color="primary" mat-fab
+  aria-label="Example icon-button with a heart icon">
+  <mat-icon>settings</mat-icon>
 </button>
+ 

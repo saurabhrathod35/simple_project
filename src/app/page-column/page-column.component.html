@@ -1,4 +1,17 @@
-  New Column
-<button>
-  Add Widget
+<div class="main-container">
+  {{column.title | json}}
+
+  
+  <!-- New Column -->
+  
+  <button matTooltip="Edit Page"  color="primary" mat-mini-fab
+  [matMenuTriggerFor]="menu"  aria-label="Example icon-button with a heart icon">
+  <mat-icon>settings</mat-icon>
 </button>
+<mat-menu #menu="matMenu">
+    <button *ngFor="let setting of settingOptions" (click)="addWidget()" mat-menu-item>{{setting.title}}</button>
+  </mat-menu>
+  
+</div>
+<!-- <button  mat-raised-button>Add Widget</button> -->
+ 

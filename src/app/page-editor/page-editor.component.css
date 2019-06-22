@@ -1,0 +1,30 @@
+.container-main{
+    width: 100%;
+}
+
+.column-container{
+    width: 50%; 
+    padding: 20px;  
+    resize: both;
+    overflow: auto;
+    margin-bottom: 20px
+}
+ 
+
+.container {
+    height: auto;
+    overflow: hidden;
+ }
+ 
+ .left {
+     float: none; /* not needed, just for clarification */
+     background: #e8f6fe;
+      width: auto;
+     overflow: hidden;
+ }​​
+ .right {
+     width: 180px;
+     float: right;
+     background: #aafed6;
+ }
+ 

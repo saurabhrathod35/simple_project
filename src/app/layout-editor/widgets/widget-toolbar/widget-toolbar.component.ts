@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import PageModel from '../../../models/PageModel';
+import {PageModel} from '../../../models/PageModel';
 import Model from '../../../models/Model';
 
 @Component({

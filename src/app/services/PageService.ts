@@ -31,4 +31,12 @@ export default class PageService {
       }
     }).then(response => response.json())
   }
+
+  deletePage(_id: string) {
+    return fetch(this.PAGE_ENDPOINT + '/' + _id, {
+      method: 'DELETE'
+    })
+      .then(response => response.json());
+  }
+
 }

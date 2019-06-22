@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import PageService from '../services/PageService';
+import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 
 @Component({
   selector: 'app-page-editor',
@@ -38,4 +39,11 @@ export class PageEditorComponent implements OnInit {
     this.service.updatePage(this.websiteId, this.pageId, this.page);
   }
 
+
+  drop(event: CdkDragDrop<string[]>) {
+    moveItemInArray(this.page.rows, event.previousIndex, event.currentIndex);
+    this.service.updatePage(this.websiteId, this.pageId, this.page);
+
+  }
+  
 }

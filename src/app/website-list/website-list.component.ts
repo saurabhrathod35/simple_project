@@ -14,7 +14,7 @@ export class WebsiteListComponent implements OnInit {
 
   constructor(private service: WebsiteService,public dialog: MatDialog) { }
 
-  websites = [];
+  websites:Array<Website> = [];
   editing = false;
 
   ngOnInit() {
@@ -23,26 +23,26 @@ export class WebsiteListComponent implements OnInit {
   }
 
   drop(event: CdkDragDrop<string[]>) {
-    console.log(event);
-    
     moveItemInArray(this.websites, event.previousIndex, event.currentIndex);
   }
 
-  createWebsite(type) {
-    let tmp = new Website();
+  createWebsite(type,index?) {
+    let tmp = new Website(type);
     const dialogRef = this.dialog.open(ConfigureWebsiteComponent, {
       width: '250px',
       data: tmp
     });
 
-    dialogRef.afterClosed().subscribe(result => {
+    dialogRef.afterClosed().subscribe((result:Website) => {
       console.log('The dialog was closed');
       if(result){
-        // this.animal = result;
+        this.websites[index] = result;
         this.service
         .createWebsite(result)
         .then(website => this.websites.push(website));
       }
+      },error=>{
+          console.log('something wrong');
       })
     }
   

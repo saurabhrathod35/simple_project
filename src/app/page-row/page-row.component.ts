@@ -22,11 +22,15 @@ export class PageRowComponent implements OnInit {
 
   addColumn = () => {
     const column = {
-      title: 'New Column',
+      title: 'New Column_'+this.row.columns.length,
       widgets: []
     }
-    this.row.columns.push(column)
-    this.service.updatePage(this.websiteId, this.pageId, this.page);
+    if(this.row.columns.length <=12){
+      this.row.columns.push(column)
+      this.service.updatePage(this.websiteId, this.pageId, this.page);
+    }else{
+      
+    }
 
   }
 }

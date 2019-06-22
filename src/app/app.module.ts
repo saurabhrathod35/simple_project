@@ -34,6 +34,9 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { HeaderComponent } from './common/header/header.component';
 import { SecureComponent } from './secure/secure.component';
 import { ConfigureWebsiteComponent } from './website-list/configure-website/configure-website.component';
+import { ConfigurePageComponent } from './page-list/configure-page/configure-page.component';
+import { ConfigureWidgetComponent } from './page-column/configure-widget/configure-widget.component';
+import WidgetService from './services/widgetService';
 
 @NgModule({
   declarations: [
@@ -59,6 +62,8 @@ import { ConfigureWebsiteComponent } from './website-list/configure-website/conf
     HeaderComponent,
     SecureComponent,
     ConfigureWebsiteComponent,
+    ConfigurePageComponent,
+    ConfigureWidgetComponent,
     // WidgetEditorComponent
   ],
   imports: [
@@ -67,12 +72,19 @@ import { ConfigureWebsiteComponent } from './website-list/configure-website/conf
     BrowserModule,
     FormsModule,
     BrowserAnimationsModule
-  ],entryComponents:[ConfigureWebsiteComponent],
+  ],
+  entryComponents:[
+    ConfigureWebsiteComponent,
+    ConfigurePageComponent,
+    ConfigureWidgetComponent
+  ],
   providers: [
     { provide: UserService, useClass: UserService },
     { provide: CourseNavigatorServiceClient, useClass: CourseNavigatorServiceClient },
     { provide: WebsiteService, useClass: WebsiteService },
-    { provide: PageService, useClass: PageService }
+    { provide: PageService, useClass: PageService },
+    { provide: WidgetService, useClass: WidgetService }
+    
     // Model,
     // LayoutService
     // PageModel

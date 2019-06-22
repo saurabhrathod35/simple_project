@@ -3,6 +3,7 @@
   <a [routerLink]="'/websites/' + website._id + '/pages'" *ngFor="let website of websites"
   (cdkDropListDropped)="drop($event)"   class="list-group-item"cdkDrag >
     <span [hidden]="website.editing">{{website.title}}</span>
+   
     <input
       [(ngModel)]="website.title"
       [hidden]="!website.editing"/>

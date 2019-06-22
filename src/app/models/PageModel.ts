@@ -5,9 +5,9 @@ import Row from './Row';
 import Widget from './Widget';
 import PageInterface from './PageInterface';
 @Injectable()
-export default class PageModel
-  implements PageInterface {
-  rows = rows();
+export  class PageModel implements PageInterface {
+  title:string=undefined;
+  rows:Array<any> = []; // rows();
 
   getAllRows() {
     return this.rows;
@@ -107,7 +107,7 @@ export default class PageModel
 
   appendWidget(row: any, col: any) {
     col.widgets.push(
-      new Widget('HEADING', 'New Widget', 4));
+      new Widget({type: 'HEADING',text: 'New Widget',size:2}));
   }
 
   moveWidgetUp(row: any, col: any, widget: any) {
